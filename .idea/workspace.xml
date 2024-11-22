@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51a5c9d0-f497-4d54-9932-88885a617a12" name="Changes" comment="프로젝트 생성 - 24.11.22">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servlet/TestServlet.java" afterDir="false" />
+    <list default="true" id="51a5c9d0-f497-4d54-9932-88885a617a12" name="Changes" comment="서블릿으로 jsp 호출 - 24.11.22&#10;&#10;- 서블릿 API 의존성 추가&#10;- EL(Expression Language) 활성화를 위해 web.xml 2.5로 업그레이드">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servlet/IndexServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servlet/RedirectServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/servlet/TestServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732238645849</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="서블릿으로 jsp 호출 - 24.11.22&#10;&#10;- 서블릿 API 의존성 추가&#10;- EL(Expression Language) 활성화를 위해 web.xml 2.5로 업그레이드">
+      <option name="closed" value="true" />
+      <created>1732241485961</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1732241485961</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -165,6 +173,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="프로젝트 생성 - 24.11.22" />
-    <option name="LAST_COMMIT_MESSAGE" value="프로젝트 생성 - 24.11.22" />
+    <MESSAGE value="서블릿으로 jsp 호출 - 24.11.22&#10;&#10;- 서블릿 API 의존성 추가&#10;- EL(Expression Language) 활성화를 위해 web.xml 2.5로 업그레이드" />
+    <option name="LAST_COMMIT_MESSAGE" value="서블릿으로 jsp 호출 - 24.11.22&#10;&#10;- 서블릿 API 의존성 추가&#10;- EL(Expression Language) 활성화를 위해 web.xml 2.5로 업그레이드" />
   </component>
 </project>

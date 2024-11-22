@@ -2,11 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Index Page</title>
+    <title>Main Page</title>
 </head>
 <body>
-    <h1>Welcome to Index Page</h1>
+    <h1>Welcome to Main Page</h1>
     <p>${message}</p>
-    <button onclick="location.href='/main.do'">Go to Main</button>
 </body>
 </html>
