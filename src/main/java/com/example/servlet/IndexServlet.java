@@ -34,16 +34,14 @@ public class IndexServlet extends HttpServlet {
 
         // 세션 확인
         HashMap<String, String> storedSessionData = (HashMap<String, String>) session.getAttribute(sessionId);
-        System.out.println("sessionData: " + sessionData);
-        System.out.println("storedSessionData: " + storedSessionData);
+        System.out.println("[" + request.getRequestURI() + "] sessionData = " + sessionData + " :: storedSessionData = " + storedSessionData);
 
         if (storedSessionData != null && storedSessionData.containsKey("sessionId") && storedSessionData.containsKey("uuid")) {
             request.setAttribute("message", "세션 데이터 저장 완료");
+            request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
         } else {
             request.setAttribute("message", "세션 데이터 저장 실패");
+            request.getRequestDispatcher("/WEB-INF/views/error.jsp").forward(request, response);
         }
-
-        // JSP로 포워딩
-        request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
     }
 }

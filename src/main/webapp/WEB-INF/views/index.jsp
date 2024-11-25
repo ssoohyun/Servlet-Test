@@ -3,6 +3,7 @@
 <html>
 <head>
     <title>Index Page</title>
+    <link rel="icon" href="data:," /> <!-- Favicon 없음 설정 -->
 </head>
 <body>
     <h1>Welcome to Index Page</h1>
@@ -23,24 +24,26 @@
                     });
 
                     if (!response.ok) {
-                        throw new Error('Failed to fetch session data');
+                        throw new Error('Failed to get session data');
                     }
 
                     const sessionData = await response.json();
                     console.log('Session Data:', sessionData);
 
                     // 암호화된 데이터를 생성 (Base64 인코딩)
-                    const encryptedData = btoa(JSON.stringify({
-                        sessionId: sessionData.sessionId,
-                        uuid: sessionData.uuid
-                    }));
+                    const encryptedSessionId = btoa(sessionData.sessionId);
+                    const encryptedUuid = btoa(sessionData.uuid);
 
+                    const encryptedData = JSON.stringify({
+                        sessionId: encryptedSessionId,
+                        uuid: encryptedUuid
+                    });
                     console.log('Encrypted Data:', encryptedData);
 
                     // 암호화된 데이터를 서버에 저장
                     saveSessionData(encryptedData);
                 } catch (error) {
-                    console.error('Error fetching session data:', error);
+                    console.error('Error getting session data:', error);
                 }
             }
 

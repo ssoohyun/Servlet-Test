@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51a5c9d0-f497-4d54-9932-88885a617a12" name="Changes" comment="인덱스 페이지에서 세션 스토리지에 데이터 저장 - 24.11.22&#10;&#10;- 루트 경로로 접속 시 /index.do로 리다이렉션&#10;- 메인 페이지로 이동하도록 버튼 생성">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/servlet/ProcessSessionServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error.jsp" afterDir="false" />
+    <list default="true" id="51a5c9d0-f497-4d54-9932-88885a617a12" name="Changes" comment="서버에 저장된 데이터 받은 후 암호화하여 세션 스토리지에 저장 - 24.11.22&#10;&#10;- 안전한 암호화 방법으로 변경 필요&#10;- 리턴 데이터 정리 필요">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/servlet/IndexServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/servlet/IndexServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/servlet/MainServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/servlet/MainServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/servlet/ProcessSessionServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/servlet/ProcessSessionServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/main.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +59,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/choish/IdeaProjects/Servlet-Test",
+    "last_opened_file_path": "C:/Users/choish/IdeaProjects/Java-Service-Tree-Framework-Engine-Fire",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
@@ -109,9 +110,6 @@
       <option name="catalinaBase" value="C:\Users\choish\.SmartTomcat\Servlet-Test\Servlet-Test" />
       <option name="contextPath" value="/" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
-      <option name="envOptions">
-        <map />
-      </option>
       <option name="extraClassPath" value="" />
       <option name="tomcatInfo">
         <TomcatInfo>
@@ -164,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732251953802</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="서버에 저장된 데이터 받은 후 암호화하여 세션 스토리지에 저장 - 24.11.22&#10;&#10;- 안전한 암호화 방법으로 변경 필요&#10;- 리턴 데이터 정리 필요">
+      <option name="closed" value="true" />
+      <created>1732268438956</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732268438956</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,6 +188,7 @@
     <MESSAGE value="프로젝트 생성 - 24.11.22" />
     <MESSAGE value="서블릿으로 jsp 호출 - 24.11.22&#10;&#10;- 서블릿 API 의존성 추가&#10;- EL(Expression Language) 활성화를 위해 web.xml 2.5로 업그레이드" />
     <MESSAGE value="인덱스 페이지에서 세션 스토리지에 데이터 저장 - 24.11.22&#10;&#10;- 루트 경로로 접속 시 /index.do로 리다이렉션&#10;- 메인 페이지로 이동하도록 버튼 생성" />
-    <option name="LAST_COMMIT_MESSAGE" value="인덱스 페이지에서 세션 스토리지에 데이터 저장 - 24.11.22&#10;&#10;- 루트 경로로 접속 시 /index.do로 리다이렉션&#10;- 메인 페이지로 이동하도록 버튼 생성" />
+    <MESSAGE value="서버에 저장된 데이터 받은 후 암호화하여 세션 스토리지에 저장 - 24.11.22&#10;&#10;- 안전한 암호화 방법으로 변경 필요&#10;- 리턴 데이터 정리 필요" />
+    <option name="LAST_COMMIT_MESSAGE" value="서버에 저장된 데이터 받은 후 암호화하여 세션 스토리지에 저장 - 24.11.22&#10;&#10;- 안전한 암호화 방법으로 변경 필요&#10;- 리턴 데이터 정리 필요" />
   </component>
 </project>

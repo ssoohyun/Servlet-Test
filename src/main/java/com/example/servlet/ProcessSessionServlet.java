@@ -18,9 +18,10 @@ public class ProcessSessionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
+        // 서버에 저장된 세션 데이터 가져오기
         HttpSession session = request.getSession();
         String sessionId = session.getId();
-        HashMap<String, String> sessionData = (HashMap<String, String>) session.getAttribute(sessionId);
+        HashMap<String, String> storedSessionData = (HashMap<String, String>) session.getAttribute(sessionId);
 
         // JSON 요청 데이터 읽기
         StringBuilder sb = new StringBuilder();
@@ -33,49 +34,38 @@ public class ProcessSessionServlet extends HttpServlet {
 
         if ("getSession".equals(action)) {
 
-            if (sessionData == null) {
+            if (storedSessionData == null) {
                 response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
                 return;
             }
 
             // 클라이언트로 세션 데이터 반환
             response.setContentType("application/json");
-            response.getWriter().write(new Gson().toJson(sessionData));
+            response.getWriter().write(new Gson().toJson(storedSessionData));
 
         } else if ("saveSession".equals(action)) {
             String encryptedData = json.getString("encryptedData");
 
-            // Base64 디코딩
-            String decryptedJson;
-            try {
-                byte[] decodedBytes = Base64.getDecoder().decode(encryptedData); // Base64 디코딩
-                decryptedJson = new String(decodedBytes, StandardCharsets.UTF_8); // 디코딩된 JSON 문자열
-            } catch (IllegalArgumentException e) {
-                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-                response.getWriter().write("{\"status\":\"failure\", \"message\":\"Invalid encrypted data\"}");
-                return;
-            }
-
             // JSON 파싱
-            JSONObject decryptedData;
-            try {
-                decryptedData = new JSONObject(decryptedJson); // JSON 파싱
-            } catch (Exception e) {
-                response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-                response.getWriter().write("{\"status\":\"failure\", \"message\":\"Invalid JSON format\"}");
-                return;
-            }
+            JSONObject encryptedJson = new JSONObject(encryptedData);
+            String encryptedSessionId = encryptedJson.getString("sessionId");
+            String encryptedUuid = encryptedJson.getString("uuid");
 
-            // 추출한 데이터
-            String clientSessionId = decryptedData.getString("sessionId");
-            String clientUuid = decryptedData.getString("uuid");
+            // Base64 디코딩
+            String decryptedSessionId = new String(Base64.getDecoder().decode(encryptedSessionId), StandardCharsets.UTF_8);
+            String decryptedUuid = new String(Base64.getDecoder().decode(encryptedUuid), StandardCharsets.UTF_8);
+            System.out.println("[" + request.getRequestURI() + "] encryptedData = " + encryptedData + " :: decryptedData = {sessionId: " + decryptedSessionId + ", uuid: " + decryptedUuid + "}");
 
-            if (sessionData != null) {
-                String uuid = sessionData.get("uuid");
+            if (storedSessionData != null) {
+                String uuid = storedSessionData.get("uuid");
 
-                if (sessionId.equals(clientSessionId) && uuid.equals(clientUuid)) {
-                    // Step 5: 세션에 저장
-                    session.setAttribute(clientUuid, encryptedData); // UUID를 키로 저장
+                if (sessionId.equals(decryptedSessionId) && uuid.equals(decryptedUuid)) {
+                    // 세션에 저장
+                    HashMap<String, String> uuidData = new HashMap<>();
+                    uuidData.put("sessionId", encryptedSessionId);
+                    uuidData.put("uuid", encryptedUuid);
+
+                    session.setAttribute(decryptedUuid, uuidData); // UUID를 키로 저장
                     response.setStatus(HttpServletResponse.SC_OK);
                     response.getWriter().write("{\"status\":\"success\", \"message\":\"Data saved successfully\"}");
                 } else {
