@@ -13,7 +13,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.HashMap;
 
-@WebServlet("/api/process-session")
+@WebServlet("/api/process-data")
 public class ProcessSessionServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -32,7 +32,7 @@ public class ProcessSessionServlet extends HttpServlet {
         JSONObject json = new JSONObject(requestData);
         String action = json.getString("action");
 
-        if ("getSession".equals(action)) {
+        if ("getData".equals(action)) {
 
             if (storedSessionData == null) {
                 response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
@@ -43,7 +43,7 @@ public class ProcessSessionServlet extends HttpServlet {
             response.setContentType("application/json");
             response.getWriter().write(new Gson().toJson(storedSessionData));
 
-        } else if ("saveSession".equals(action)) {
+        } else if ("saveData".equals(action)) {
             String encryptedData = json.getString("encryptedData");
 
             // JSON 파싱
@@ -67,7 +67,9 @@ public class ProcessSessionServlet extends HttpServlet {
 
                     session.setAttribute(decryptedUuid, uuidData); // UUID를 키로 저장
                     response.setStatus(HttpServletResponse.SC_OK);
-                    response.getWriter().write("{\"status\":\"success\", \"message\":\"Data saved successfully\"}");
+                    //response.getWriter().write("{\"status\":\"success\", \"message\":\"Data saved successfully\"}");
+                    response.setContentType("application/json");
+                    response.getWriter().write(new Gson().toJson(uuidData));
                 } else {
                     // 검증 실패
                     response.setStatus(HttpServletResponse.SC_BAD_REQUEST);

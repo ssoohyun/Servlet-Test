@@ -35,6 +35,8 @@ public class IndexServlet extends HttpServlet {
         // 세션 확인
         HashMap<String, String> storedSessionData = (HashMap<String, String>) session.getAttribute(sessionId);
         System.out.println("[" + request.getRequestURI() + "] sessionData = " + sessionData + " :: storedSessionData = " + storedSessionData);
+        request.setAttribute("serverSessionId", storedSessionData.get("sessionId"));
+        request.setAttribute("serverUuid", storedSessionData.get("uuid"));
 
         if (storedSessionData != null && storedSessionData.containsKey("sessionId") && storedSessionData.containsKey("uuid")) {
             request.setAttribute("message", "세션 데이터 저장 완료");

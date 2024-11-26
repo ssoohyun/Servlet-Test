@@ -1,3 +1,4 @@
+/*
 package com.example.servlet;
 
 import javax.servlet.ServletException;
@@ -14,3 +15,4 @@ public class RedirectServlet extends HttpServlet {
         response.sendRedirect(request.getContextPath() + "/index.do");
     }
 }
+*/
